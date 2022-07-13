@@ -1,0 +1,96 @@
+﻿@model FaithAG.Models.RegisterViewModel
+<br />
+<br />
+<br />
+@{
+    ViewBag.Title = "Register";
+}
+
+
+<div class="modal-dialog"  style="width:100%;">
+    <div class="modal-content">
+        <div style="background-color:#382e2e;" class="modal-header">
+            <h4 style="color:white;font-weight:bold;font-family:Algerian">@ViewBag.Title.</h4>
+            @*<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>*@
+            @*<h4 class="modal-title">Edit</h4>*@
+        </div>
+        <div class="modal-body">
+
+
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+            
+                <h4>Add new account.</h4>
+                <hr />
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div class="row col-lg-offset-2">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.UserName, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @required = "required" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Firstname, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.Firstname, new { @class = "form-control", @required = "required" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Middlename, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.Middlename, new { @class = "form-control", @required = "required" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Lastname, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.Lastname, new { @class = "form-control", @required = "required" })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.PhoneN, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.PhoneN, new { @class = "form-control", @required = "required" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @required = "required" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                        </div>
+
+                        @*<div class="form-group">
+                                @Html.Label("User Role", new { @class = "control-label" })
+                                   @Html.DropDownList("Name")
+                                    @Html.DropDownList("UserRoles", (SelectList)ViewBag.Name, "---Select One---", new { @class = "form-control" })
+                            </div>*@
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <div class="col-md-offset-5 col-md-10">
+                        <input type="submit" class="btn btn-primary" value="Add User" />
+                    </div>
+                </div>
+            }
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }
+
+        </div>
+        <div style="background-color:#382e2e;" class="modal-footer">
+            @*@Html.ActionLink("Cancel", "CheckInRole", "Check_in", new {id=Model.RefNo }, new { @class = "btn btn-primary" })*@
+            @*<a href="javascript:window.close(0);" class="btn btn-primary">Close</a>*@
+        </div>
+    </div>
+</div>

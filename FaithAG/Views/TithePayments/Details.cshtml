@@ -1,0 +1,50 @@
+﻿@model FaithAG.Models.TithePayment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TithePayment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RecordDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecordDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.Firstname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Firstname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MemebershipT.Firstname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MemebershipT.Firstname)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

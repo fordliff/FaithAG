@@ -1,0 +1,278 @@
+﻿@model IEnumerable<FaithAG.Models.MemebershipT>
+
+
+@{
+    ViewBag.Title = "List of Members";
+    var grid = new System.Web.Helpers.WebGrid(Model, rowsPerPage: 15,
+                   defaultSort: "name");
+}
+
+
+
+<style type="text/css">
+    .webgrid {
+        margin: 4px;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .header {
+        padding: 6px 5px;
+        text-align: center;
+        background-color: #e8eef4;
+        border-bottom: 2px solid #3966A2;
+        height: 40px;
+        font-weight: bold;
+        border-top: 2px solid #D6E8FF;
+        border-left: 2px solid #D6E8FF;
+        border-right: 2px solid #D6E8FF;
+    }
+
+    .webgrid th, .webgrid td {
+        border: 1px solid #C0C0C0;
+        padding: 5px;
+    }
+
+    .alt {
+        background-color: #E8E8E8;
+        color: #000;
+    }
+
+    .product {
+        width: 50px;
+        font-weight: bold;
+    }
+</style>
+<br />
+<br />
+<h2 style="font-weight:bolder;">@ViewBag.Title</h2>
+
+
+@if (Model.Count() > 0)
+{
+
+
+    @grid.GetHtml(tableStyle: "webgrid",
+     alternatingRowStyle: "alternate-row",
+     headerStyle: "header",
+     footerStyle: "grid-footer",
+     mode: WebGridPagerModes.All,
+     firstText: "<< First",
+     previousText: "< Prev",
+     nextText: "Next >",
+     lastText: "Last >>",
+     columns: new[] {
+     grid.Column("Id",header: "ID", canSort: false),
+     grid.Column("Fullname",header: "Fullname"),
+     grid.Column("HomeTown",header: "Home Town"),
+     grid.Column("WorkPlace",header: "Work Place / School "),
+      grid.Column("City",header: "Place of Stay"),
+     grid.Column("PhoneNo",header: "Phone#"),
+     grid.Column("MaritalStatu.StatusName",header: "Marital Status"),
+     grid.Column(header: "Action", canSort: false, style: "action  col-lg-2",
+             format: (item) => new HtmlString("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href=" + @Url.Action("Edit", new { id = item.id }) + " title='Edit' ><i class='glyphicon glyphicon-edit'></i><span class='sr-only'>Edit</span> </a> "
+                 + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href=" + @Url.Action("Index","DepartLists", new { id = item.id }) + " title='View Department' target='_blank' ><i class='glyphicon glyphicon-list'></i><span class='sr-only'>View Department</span> </a>"
+                 + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href=" + @Url.Action("Index","childrenDetails", new { id = item.id }) + " title='View Child / Children Details' target='_blank'  ><i class='glyphicon glyphicon-user'></i><span class='sr-only'>View Child / Children Details</span> </a> "
+                 + "&nbsp;&nbsp;&nbsp; <a href=" + @Url.Action("Index","TithePayments", new { id = item.id }) + " title='Tithe Records'  target='_blank'  ><i class='glyphicon glyphicon-text-size'></i><span class='sr-only'>Tithe Records</span> </a> "
+                 //+ "&nbsp;&nbsp;&nbsp; <a href=" + @Url.Action("ChangeStatus", new { id = item.id }) + " title='Bill' ><i class='glyphicon glyphicon-xbt'></i><span class='sr-only'>Bill</span> </a> "
+                // + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href=" + @Url.Action("AssignmentID","RAssignments", new { id = item.Booking.RefNo }) + " title='View Assign Room(s)' ><i class='glyphicon glyphicon-plus'></i><span class='sr-only'>View Assign Room(s)</span> </a> "
+                /*ChangeGRoomStatus + RAssignments"&nbsp;&nbsp;&nbsp;&nbsp; <a href=" + @Url.Action("Delete", new { id = item.id }) + "  title='Delete' ><i class='glyphicon glyphicon-trash'> </i> </a> "*/))
+                                                                  }
+                                                         )
+}
+else
+{
+    <h3 style="color:red;">No Menbership record found</h3>
+}
+
+
+
+
+
+@*@{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Middlename)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DOB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResidentialAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkPlace)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecordDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fullname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HomeTown)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpouseId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpouseFullname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profession)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profile_Img)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NextofKin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KinContact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DigitalAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaritalStatu.StatusName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nationality.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser.Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MemberTitle.TitleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TbIdentification.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender.StatusName)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Middlename)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResidentialAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkPlace)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecordDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fullname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeTown)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpouseId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpouseFullname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Profession)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Profile_Img)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NextofKin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KinContact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DigitalAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaritalStatu.StatusName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nationality.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AspNetUser.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MemberTitle.TitleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TbIdentification.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender.StatusName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+    </table>*@

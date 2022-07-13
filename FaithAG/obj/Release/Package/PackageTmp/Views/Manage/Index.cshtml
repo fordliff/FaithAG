@@ -1,0 +1,31 @@
+﻿@model FaithAG.Models.IndexViewModel
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Manage";
+    
+}
+<br />
+<br />
+
+<h3 style="font-weight:bolder;">@ViewBag.Title.</h3>
+<br />
+<br />
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <h4>Change your account settings</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Profile:</dt>
+        <dd>
+            [           
+            @Html.ActionLink("Change your profile", "MyProfile") ]
+        </dd>
+        <p></p>
+        <dt>Password:</dt>
+        <dd>
+            [
+            @Html.ActionLink("Change your password", "ChangePassword")
+            ]
+        </dd>
+    </dl>
+</div>

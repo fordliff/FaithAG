@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+
+<html  lang="en" manifest="offline.manifest">
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - FAITH A/G - KUMASI</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @*Dropdown menu*@
+    <style>
+
+        .dropbtn {
+            background-color: #222222;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #222222;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content a {
+                /*color: white;*/
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #f57113;
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            /*color:yellow;*/
+            background-color: #222222;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top " style="border:solid;border-bottom-width:2px;border-color:yellow;">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+                    <img src="~/Images/Logo.png" style="height:70px; width:70px;" title="Faith A/G" alt="Faith A/G" />
+                </a>
+                @Html.ActionLink("FAITH A/G, Ksi", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "font-size:x-large; font-weight:bolder;color:yellow;  margin-top:16px;" })
+
+            </div>
+            <br />@*, new { @style = "color:yellow; font-weight:bold;" }*@
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home", null, new { @style = "color:yellow; font-weight:bold;" })</li>
+                    <li>@Html.ActionLink("About", "About", "Home", null, new { @style = "color:yellow; font-weight:bold;" })</li>
+                    <li role="separator" class="divider"></li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", null, new { @style = "color:yellow; font-weight:bold;" })</li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>
+                            <div class="dropdown">
+                                <button class="dropbtn" style="font-weight:bold; font-Size:13px; color:yellow; background-color:#222222;">
+                                    New
+                                    <i class="caret"></i>
+                                </button>
+                                <div class="dropdown-content">
+                                    @Html.ActionLink("Membership", "Create", "MemebershipTs", null, new { @style = "color:yellow; font-weight:bold;" })
+
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown">
+                                <button class="dropbtn" style="font-weight:bold; font-Size:13px; color:yellow; background-color:#222222;">
+                                    View
+                                    <i class="caret"></i>
+                                </button>
+                                <div style="color:white;" class="dropdown-content">
+                                    @Html.ActionLink("Membership", "Index", "MemebershipTs", null, new { @style = "color:yellow; font-weight:bold;" })
+                                    @Html.ActionLink("Daily Transaction", "DailyTransaction", "TithePayments", null, new { @style = "color:yellow; font-weight:bold;" })
+                                    @Html.ActionLink("Tithe Payment", "ViewAll", "TithePayments", null, new { @style = "color:yellow; font-weight:bold;" })
+                                    @*            @Html.ActionLink("Bookings", "ViewIndexBooking", "Bookings", null, new { @style = "color:yellow; font-weight:bold;" })
+                                        @Html.ActionLink("Checking-in", "Index", "Check_in", null, new { @style = "color:yellow; font-weight:bold;" })
+                                        @Html.ActionLink("Store Stock", "Index", "TbStores", null, new { @style = "color:yellow; font-weight:bold;" })
+                                        @Html.ActionLink("Bar Stock", "BarStocks", "TbStores", null, new { @style = "color:yellow; font-weight:bold;" })
+                                        @Html.ActionLink("Issued Items", "Index", "TbIssues", null, new { @style = "color:yellow; font-weight:bold;" })
+                                        @Html.ActionLink("Bar", "Index", "TBBarRecs", null, new { @style = "color:yellow; font-weight:bold;" })
+                                        @Html.ActionLink("Restaurant", "Index", "TBRestaurants", null, new { @style = "color:yellow; font-weight:bold;" })
+                                        @Html.ActionLink("Rooms Status", "RoomsStatus", "Rooms", null, new { @style = "color:yellow; font-weight:bold;" })
+                                        @Html.ActionLink("Checking-Out", "Checkout", "Check_in", null, new { @style = "color:yellow; font-weight:bold;" })
+                                        @Html.ActionLink("Auto Cancellation", "ViewAutoCancellation", "Bookings", null, new { @style = "color:yellow; font-weight:bold;" })
+                                        @Html.ActionLink("Cancellations", "AllCancellationIndex", "Bookings", null, new { @style = "color:yellow; font-weight:bold;" })*@
+
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown">
+                                <button class="dropbtn" style="font-weight:bold; font-Size:13px; color:yellow; background-color:#222222;">
+                                    Settings
+                                    <i class="caret"></i>
+                                </button>
+                                <div class="dropdown-content">
+                                    @Html.ActionLink("Department", "Create", "Departmentals", null, new { @style = "color:yellow; font-weight:bold;" })
+                                    @Html.ActionLink("Title", "Create", "MemberTitles", null, new { @style = "color:yellow; font-weight:bold;" })
+                                    @* @Html.ActionLink("Item Type", "Create", "TbItemTypes", null, new { @style = "color:yellow; font-weight:bold;" })
+                                        @Html.ActionLink("Restaurant Menu", "Create", "TbMenus", null, new { @style = "color:yellow; font-weight:bold;" })*@
+                                    @Html.ActionLink("Reset Password", "ResetAllPassword", "Account", null, new { @style = "color:yellow; font-weight:bold;" })
+                                    @*@Html.ActionLink("New Room Size", "Create", "Rooms",null, new { @style = "color:yellow; font-weight:bold;" })*@
+
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+        <br />
+
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr style="font-weight:bolder; border:solid; border-color:black;" />
+        <footer style="text-align:center;">
+            <p style="font-weight:bolder;">&copy; 2015 - Faith Assemblies of God, Church</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

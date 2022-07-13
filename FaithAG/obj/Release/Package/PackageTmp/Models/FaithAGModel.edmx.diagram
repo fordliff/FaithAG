@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="28bb8942d5bd45449b83af894d2f19c8" Name="Diagram1">
+        <EntityTypeShape EntityType="hpsadmin_dfaithagModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="hpsadmin_dfaithagModel.AspNetRole" Width="1.5" PointX="0.75" PointY="6.125" />
+        <EntityTypeShape EntityType="hpsadmin_dfaithagModel.AspNetUserClaim" Width="1.5" PointX="5.375" PointY="12" />
+        <EntityTypeShape EntityType="hpsadmin_dfaithagModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="4.75" />
+        <EntityTypeShape EntityType="hpsadmin_dfaithagModel.childrenDetail" Width="1.5" PointX="10.5" PointY="8.125" />
+        <EntityTypeShape EntityType="hpsadmin_dfaithagModel.DepartList" Width="1.5" PointX="10.5" PointY="5" />
+        <EntityTypeShape EntityType="hpsadmin_dfaithagModel.Departmental" Width="1.5" PointX="8.25" PointY="1" />
+        <EntityTypeShape EntityType="hpsadmin_dfaithagModel.MaritalStatu" Width="1.5" PointX="6" PointY="1.75" />
+        <EntityTypeShape EntityType="hpsadmin_dfaithagModel.MemebershipT" Width="1.5" PointX="8.25" PointY="4" />
+        <EntityTypeShape EntityType="hpsadmin_dfaithagModel.Nationality" Width="1.5" PointX="6" PointY="8.125" />
+        <AssociationConnector Association="hpsadmin_dfaithagModel.PK_childrenDetails_MembershipIDNo" />
+        <AssociationConnector Association="hpsadmin_dfaithagModel.PK_DepartList_DeptId" />
+        <AssociationConnector Association="hpsadmin_dfaithagModel.PK_DepartList_MemberId" />
+        <AssociationConnector Association="hpsadmin_dfaithagModel.PK_MemebershipT_MaritalStatusID" />
+        <AssociationConnector Association="hpsadmin_dfaithagModel.PK_MemebershipT_NationalityID" />
+        <EntityTypeShape EntityType="hpsadmin_dfaithagModel.AspNetUser" Width="1.5" PointX="3" PointY="4.5" />
+        <AssociationConnector Association="hpsadmin_dfaithagModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="hpsadmin_dfaithagModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="hpsadmin_dfaithagModel.PK_MemebershipT_UID" />
+        <AssociationConnector Association="hpsadmin_dfaithagModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="hpsadmin_dfaithagModel.MemberTitle" Width="1.5" PointX="9.875" PointY="13.375" />
+        <EntityTypeShape EntityType="hpsadmin_dfaithagModel.TbIdentification" Width="1.5" PointX="10.375" PointY="0.875" />
+        <AssociationConnector Association="hpsadmin_dfaithagModel.PK_MemebershipT_MemTitleID" />
+        <AssociationConnector Association="hpsadmin_dfaithagModel.PK_MemebershipT_IDType" />
+        <EntityTypeShape EntityType="hpsadmin_dfaithagModel.Gender" Width="1.5" PointX="3" PointY="11.125" />
+        <AssociationConnector Association="hpsadmin_dfaithagModel.PK_childrenDetails_GenderID" />
+        <AssociationConnector Association="hpsadmin_dfaithagModel.PK_MemebershipT_GenderIDn" />
+        <EntityTypeShape EntityType="hpsadmin_dfaithagModel.TithePayment" Width="1.5" PointX="13.5" PointY="6.875" />
+        <AssociationConnector Association="hpsadmin_dfaithagModel.PK_TithePayment_UserId" />
+        <AssociationConnector Association="hpsadmin_dfaithagModel.PK_TithePayment_MemberIdN" />
+        <EntityTypeShape EntityType="hpsadmin_dfaithagModel.FaithBillLog" Width="1.5" PointX="5.25" PointY="15.5" />
+        <AssociationConnector Association="hpsadmin_dfaithagModel.PK_FaithBillLog_BillUID" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

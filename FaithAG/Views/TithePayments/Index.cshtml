@@ -1,0 +1,104 @@
+﻿@model IEnumerable<FaithAG.Models.TithePayment>
+
+
+@{
+    ViewBag.Title = "Tithe Payment";
+    var grid = new System.Web.Helpers.WebGrid(Model, rowsPerPage: 15,
+                   defaultSort: "name");
+}
+
+
+
+<style type="text/css">
+    .webgrid {
+        margin: 4px;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .header {
+        padding: 6px 5px;
+        text-align: center;
+        background-color: #e8eef4;
+        border-bottom: 2px solid #3966A2;
+        height: 40px;
+        font-weight: bold;
+        border-top: 2px solid #D6E8FF;
+        border-left: 2px solid #D6E8FF;
+        border-right: 2px solid #D6E8FF;
+    }
+
+    .webgrid th, .webgrid td {
+        border: 1px solid #C0C0C0;
+        padding: 5px;
+    }
+
+    .alt {
+        background-color: #E8E8E8;
+        color: #000;
+    }
+
+    .product {
+        width: 50px;
+        font-weight: bold;
+    }
+</style>
+<br />
+<br />
+@*<h2 style="font-weight:bolder;">@ViewBag.Title</h2>*@
+
+<div class="modal-dialog" style="width:50%;">
+    <div class="modal-content">
+        <div style="background-color:#382e2e;" class="modal-header">
+            <h4 style="color:white;font-weight:bold;">@ViewBag.Title.</h4>
+            @*<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>*@
+            @*<h4 class="modal-title">Edit</h4>*@
+        </div>
+        <div class="modal-body">
+
+
+
+            <p>
+                @Html.ActionLink("Payment", "Create", new { id = @ViewBag.MemID }, new { @class = "btn btn-primary" })
+            </p>
+            @if (Model.Count() > 0)
+            {
+
+
+                @grid.GetHtml(tableStyle: "webgrid",
+                 alternatingRowStyle: "alternate-row",
+                 headerStyle: "header",
+                 footerStyle: "grid-footer",
+                 mode: WebGridPagerModes.All,
+                 firstText: "<< First",
+                 previousText: "< Prev",
+                 nextText: "Next >",
+                 lastText: "Last >>",
+                 columns: new[] {
+                 grid.Column("RecordDate",header: "Payment Date", canSort: false),
+                 //grid.Column("MemebershipT.Fullname",header: "Fullname"),
+                 grid.Column("Amt",header: "Amount Paid"),
+                 grid.Column(header: "Action", canSort: false, style: "action  col-lg-2",
+                         format: (item) => new HtmlString("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href=" + @Url.Action("PrintTitheRec", new { id = item.id }) + " title='Print'  target='_blank' ><i class='glyphicon glyphicon-print'></i><span class='sr-only'>Print</span> </a> "
+                             // + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href=" + @Url.Action("Index","DepartLists", new { id = item.id }) + " title='View Department' target='_blank' ><i class='glyphicon glyphicon-list'></i><span class='sr-only'>View Department</span> </a>"
+                             // + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href=" + @Url.Action("Index","childrenDetails", new { id = item.id }) + " title='View Child / Children Details' target='_blank'  ><i class='glyphicon glyphicon-user'></i><span class='sr-only'>View Child / Children Details</span> </a> "
+                             // + "&nbsp;&nbsp;&nbsp; <a href=" + @Url.Action("Index","TithePayments", new { id = item.id }) + " title='View Assign Room(s)' ><i class='glyphicon glyphicon-list-alt'></i><span class='sr-only'>View Assign Room(s)</span> </a> "
+                             //+ "&nbsp;&nbsp;&nbsp; <a href=" + @Url.Action("ChangeStatus", new { id = item.id }) + " title='Bill' ><i class='glyphicon glyphicon-xbt'></i><span class='sr-only'>Bill</span> </a> "
+                            // + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href=" + @Url.Action("AssignmentID","RAssignments", new { id = item.Booking.RefNo }) + " title='View Assign Room(s)' ><i class='glyphicon glyphicon-plus'></i><span class='sr-only'>View Assign Room(s)</span> </a> "
+                            /*ChangeGRoomStatus + RAssignments"&nbsp;&nbsp;&nbsp;&nbsp; <a href=" + @Url.Action("Delete", new { id = item.id }) + "  title='Delete' ><i class='glyphicon glyphicon-trash'> </i> </a> "*/))
+                                                                              }
+                                                                     )
+            }
+            else
+            {
+                <h3 style="color:red;">No record found</h3>
+            }
+
+
+        </div>
+        <div style="background-color:#382e2e;" class="modal-footer">
+            @*@Html.ActionLink("Cancel", "CheckInRole", "Check_in", new {id=Model.RefNo }, new { @class = "btn btn-primary" })*@
+            <a href="javascript:window.close(0);" class="btn btn-primary">Close</a>
+        </div>
+    </div>
+</div>

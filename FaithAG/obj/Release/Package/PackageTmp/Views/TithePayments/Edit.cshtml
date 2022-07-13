@@ -1,0 +1,81 @@
+﻿@model FaithAG.Models.TithePayment
+
+@{
+    ViewBag.Title = "Edit Payment";
+}
+<br />
+<br />
+
+<div class="modal-dialog" style="width:50%;">
+    <div class="modal-content">
+        <div style="background-color:#382e2e;" class="modal-header">
+            <h4 style="color:white;font-weight:bold;">@ViewBag.Title.</h4>
+            @*<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>*@
+            @*<h4 class="modal-title">Edit</h4>*@
+        </div>
+        <div class="modal-body">
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">                   
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.Id)
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MemberIdN, "Fullname", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("MemberIdN", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.MemberIdN, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group" hidden>
+                        @Html.LabelFor(model => model.RecordDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.RecordDate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.RecordDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group" hidden>
+                        @Html.LabelFor(model => model.UserId, "UserId", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("UserId", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Amt, "Amount", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Amt, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Amt, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                            <input type="submit" value="Update Payment" class="btn btn-primary" />
+                            @*&nbsp;&nbsp;&nbsp;
+                                @Html.ActionLink("Cancel", "Index", new { id = @ViewBag.MemID }, new { @class = "btn btn-primary" })*@
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }
+
+
+        </div>
+        <div style="background-color:#382e2e;" class="modal-footer">
+            @*@Html.ActionLink("Cancel", "CheckInRole", "Check_in", new {id=Model.RefNo }, new { @class = "btn btn-primary" })*@
+            <a href="javascript:window.close(0);" class="btn btn-primary">Close</a>
+        </div>
+    </div>
+</div>

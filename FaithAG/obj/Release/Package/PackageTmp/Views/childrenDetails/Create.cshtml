@@ -1,0 +1,122 @@
+﻿@model FaithAG.Models.childrenDetail
+<br />
+<br />
+<br />
+
+@{
+    ViewBag.Title = "Add Child / Children Details";
+}
+
+
+<div class="modal-dialog" style="width:80%;">
+    <div class="modal-content">
+        <div style="background-color:#382e2e;" class="modal-header">
+            <h4 style="color:white;font-weight:bold;">@ViewBag.Title.</h4>
+            @*<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>*@
+            @*<h4 class="modal-title">Edit</h4>*@
+        </div>
+        <div class="modal-body">
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @*<h4>childrenDetail</h4>
+        <hr />*@
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <p style="color:blue;"> @TempData["SuccessMsg"]</p>
+
+                <div class="row col-md-offset-1">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.MembershipIDNo, "Member Fullname", htmlAttributes: new { @class = "control-label" })
+
+                            @Html.DropDownList("MembershipIDNo", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.MembershipIDNo, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Firstname, htmlAttributes: new { @class = "control-label" })
+                            <span style="color:red;">*</span>
+                            @Html.EditorFor(model => model.Firstname, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.Firstname, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Middlename, htmlAttributes: new { @class = "control-label" })
+
+                            @Html.EditorFor(model => model.Middlename, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Middlename, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Lastname, htmlAttributes: new { @class = "control-label" })
+                            <span style="color:red;">*</span>
+                            @Html.EditorFor(model => model.Lastname, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.Lastname, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DOB, "Date of Birth", htmlAttributes: new { @class = "control-label" })
+                            <span style="color:red;">*</span>
+                            @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control", @type = "date", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PhoneNo, "Phone No", htmlAttributes: new { @class = "control-label" })
+
+                            @Html.EditorFor(model => model.PhoneNo, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PhoneNo, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.EmailAddress, "Email Address", htmlAttributes: new { @class = "control-label" })
+
+                            @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.WorkSch, "Work / School Name", htmlAttributes: new { @class = "control-label" })
+                            <span style="color:red;">*</span>
+                            @Html.EditorFor(model => model.WorkSch, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.WorkSch, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group" hidden>
+                            @Html.LabelFor(model => model.Fullname, htmlAttributes: new { @class = "control-label" })
+
+                            @Html.EditorFor(model => model.Fullname, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Fullname, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-10">
+                        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                        &nbsp;&nbsp;&nbsp;
+                        <input type="reset" value="Reset" class="btn btn-primary" />
+                        &nbsp;&nbsp;&nbsp;
+                        @* @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-primary" })*@
+                        <a href="javascript:window.close(0);" class="btn btn-primary">Close</a>
+                    </div>
+                </div>
+            </div>
+                        }
+
+                        @section Scripts {
+                            @Scripts.Render("~/bundles/jqueryval")
+                        }
+
+                    </div>
+        <div style="background-color:#382e2e;" class="modal-footer">
+            @*@Html.ActionLink("Cancel", "CheckInRole", "Check_in", new {id=Model.RefNo }, new { @class = "btn btn-primary" })*@
+            @*<a href="javascript:window.close(0);" class="btn btn-primary">Close</a>*@
+        </div>
+    </div>
+</div>

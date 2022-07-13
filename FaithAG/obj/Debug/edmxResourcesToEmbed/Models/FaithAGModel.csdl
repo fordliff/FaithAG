@@ -1,0 +1,490 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="hpsadmin_dfaithagModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="hpsadmin_dfaithagEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="hpsadmin_dfaithagModel.C__MigrationHistory" />
+    <EntitySet Name="AspNetRoles" EntityType="hpsadmin_dfaithagModel.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="hpsadmin_dfaithagModel.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="hpsadmin_dfaithagModel.AspNetUserLogin" />
+    <EntitySet Name="childrenDetails" EntityType="hpsadmin_dfaithagModel.childrenDetail" />
+    <EntitySet Name="DepartLists" EntityType="hpsadmin_dfaithagModel.DepartList" />
+    <EntitySet Name="Departmentals" EntityType="hpsadmin_dfaithagModel.Departmental" />
+    <EntitySet Name="MaritalStatus" EntityType="hpsadmin_dfaithagModel.MaritalStatu" />
+    <EntitySet Name="MemebershipTs" EntityType="hpsadmin_dfaithagModel.MemebershipT" />
+    <EntitySet Name="Nationalities" EntityType="hpsadmin_dfaithagModel.Nationality" />
+    <AssociationSet Name="PK_childrenDetails_MembershipIDNo" Association="hpsadmin_dfaithagModel.PK_childrenDetails_MembershipIDNo">
+      <End Role="MemebershipT" EntitySet="MemebershipTs" />
+      <End Role="childrenDetail" EntitySet="childrenDetails" />
+    </AssociationSet>
+    <AssociationSet Name="PK_DepartList_DeptId" Association="hpsadmin_dfaithagModel.PK_DepartList_DeptId">
+      <End Role="Departmental" EntitySet="Departmentals" />
+      <End Role="DepartList" EntitySet="DepartLists" />
+    </AssociationSet>
+    <AssociationSet Name="PK_DepartList_MemberId" Association="hpsadmin_dfaithagModel.PK_DepartList_MemberId">
+      <End Role="MemebershipT" EntitySet="MemebershipTs" />
+      <End Role="DepartList" EntitySet="DepartLists" />
+    </AssociationSet>
+    <AssociationSet Name="PK_MemebershipT_MaritalStatusID" Association="hpsadmin_dfaithagModel.PK_MemebershipT_MaritalStatusID">
+      <End Role="MaritalStatu" EntitySet="MaritalStatus" />
+      <End Role="MemebershipT" EntitySet="MemebershipTs" />
+    </AssociationSet>
+    <AssociationSet Name="PK_MemebershipT_NationalityID" Association="hpsadmin_dfaithagModel.PK_MemebershipT_NationalityID">
+      <End Role="Nationality" EntitySet="Nationalities" />
+      <End Role="MemebershipT" EntitySet="MemebershipTs" />
+    </AssociationSet>
+    <EntitySet Name="AspNetUsers" EntityType="hpsadmin_dfaithagModel.AspNetUser" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="hpsadmin_dfaithagModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="hpsadmin_dfaithagModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="PK_MemebershipT_UID" Association="hpsadmin_dfaithagModel.PK_MemebershipT_UID">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="MemebershipT" EntitySet="MemebershipTs" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="hpsadmin_dfaithagModel.AspNetUserRoles">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <EntitySet Name="MemberTitles" EntityType="hpsadmin_dfaithagModel.MemberTitle" />
+    <EntitySet Name="TbIdentifications" EntityType="hpsadmin_dfaithagModel.TbIdentification" />
+    <AssociationSet Name="PK_MemebershipT_MemTitleID" Association="hpsadmin_dfaithagModel.PK_MemebershipT_MemTitleID">
+      <End Role="MemberTitle" EntitySet="MemberTitles" />
+      <End Role="MemebershipT" EntitySet="MemebershipTs" />
+    </AssociationSet>
+    <AssociationSet Name="PK_MemebershipT_IDType" Association="hpsadmin_dfaithagModel.PK_MemebershipT_IDType">
+      <End Role="TbIdentification" EntitySet="TbIdentifications" />
+      <End Role="MemebershipT" EntitySet="MemebershipTs" />
+    </AssociationSet>
+    <EntitySet Name="Genders" EntityType="hpsadmin_dfaithagModel.Gender" />
+    <AssociationSet Name="PK_childrenDetails_GenderID" Association="hpsadmin_dfaithagModel.PK_childrenDetails_GenderID">
+      <End Role="Gender" EntitySet="Genders" />
+      <End Role="childrenDetail" EntitySet="childrenDetails" />
+    </AssociationSet>
+    <AssociationSet Name="PK_MemebershipT_GenderIDn" Association="hpsadmin_dfaithagModel.PK_MemebershipT_GenderIDn">
+      <End Role="Gender" EntitySet="Genders" />
+      <End Role="MemebershipT" EntitySet="MemebershipTs" />
+    </AssociationSet>
+    <EntitySet Name="TithePayments" EntityType="hpsadmin_dfaithagModel.TithePayment" />
+    <AssociationSet Name="PK_TithePayment_UserId" Association="hpsadmin_dfaithagModel.PK_TithePayment_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="TithePayment" EntitySet="TithePayments" />
+    </AssociationSet>
+    <AssociationSet Name="PK_TithePayment_MemberIdN" Association="hpsadmin_dfaithagModel.PK_TithePayment_MemberIdN">
+      <End Role="MemebershipT" EntitySet="MemebershipTs" />
+      <End Role="TithePayment" EntitySet="TithePayments" />
+    </AssociationSet>
+    <EntitySet Name="FaithBillLogs" EntityType="hpsadmin_dfaithagModel.FaithBillLog" />
+    <AssociationSet Name="PK_FaithBillLog_BillUID" Association="hpsadmin_dfaithagModel.PK_FaithBillLog_BillUID">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="FaithBillLog" EntitySet="FaithBillLogs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="hpsadmin_dfaithagModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="hpsadmin_dfaithagModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="hpsadmin_dfaithagModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="childrenDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MembershipIDNo" Type="Int32" />
+    <Property Name="Firstname" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Middlename" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Lastname" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="PhoneNo" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="WorkSch" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Fullname" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MemebershipT" Relationship="hpsadmin_dfaithagModel.PK_childrenDetails_MembershipIDNo" FromRole="childrenDetail" ToRole="MemebershipT" />
+    <Property Name="GenderID" Type="Int32" />
+    <NavigationProperty Name="Gender" Relationship="hpsadmin_dfaithagModel.PK_childrenDetails_GenderID" FromRole="childrenDetail" ToRole="Gender" />
+  </EntityType>
+  <EntityType Name="DepartList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int32" />
+    <Property Name="DeptId" Type="Int32" />
+    <NavigationProperty Name="Departmental" Relationship="hpsadmin_dfaithagModel.PK_DepartList_DeptId" FromRole="DepartList" ToRole="Departmental" />
+    <NavigationProperty Name="MemebershipT" Relationship="hpsadmin_dfaithagModel.PK_DepartList_MemberId" FromRole="DepartList" ToRole="MemebershipT" />
+  </EntityType>
+  <EntityType Name="Departmental">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DepartLists" Relationship="hpsadmin_dfaithagModel.PK_DepartList_DeptId" FromRole="Departmental" ToRole="DepartList" />
+  </EntityType>
+  <EntityType Name="MaritalStatu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StatusName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MemebershipTs" Relationship="hpsadmin_dfaithagModel.PK_MemebershipT_MaritalStatusID" FromRole="MaritalStatu" ToRole="MemebershipT" />
+  </EntityType>
+  <EntityType Name="MemebershipT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Firstname" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Middlename" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Lastname" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="PhoneNo" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="NationalityID" Type="Int32" />
+    <Property Name="ResidentialAddress" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MaritalStatusID" Type="Int32" />
+    <Property Name="WorkPlace" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="RecordDate" Type="DateTime" Precision="3" />
+    <Property Name="Fullname" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="HomeTown" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="SpouseId" Type="Int32" />
+    <Property Name="SpouseFullname" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Profession" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="childrenDetails" Relationship="hpsadmin_dfaithagModel.PK_childrenDetails_MembershipIDNo" FromRole="MemebershipT" ToRole="childrenDetail" />
+    <NavigationProperty Name="DepartLists" Relationship="hpsadmin_dfaithagModel.PK_DepartList_MemberId" FromRole="MemebershipT" ToRole="DepartList" />
+    <NavigationProperty Name="MaritalStatu" Relationship="hpsadmin_dfaithagModel.PK_MemebershipT_MaritalStatusID" FromRole="MemebershipT" ToRole="MaritalStatu" />
+    <NavigationProperty Name="Nationality" Relationship="hpsadmin_dfaithagModel.PK_MemebershipT_NationalityID" FromRole="MemebershipT" ToRole="Nationality" />
+    <NavigationProperty Name="AspNetUser" Relationship="hpsadmin_dfaithagModel.PK_MemebershipT_UID" FromRole="MemebershipT" ToRole="AspNetUser" />
+    <Property Name="GenderIDn" Type="Int32" />
+    <Property Name="Profile_Img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MemTitleID" Type="Int32" />
+    <Property Name="NextofKin" Type="String" MaxLength="128" FixedLength="true" Unicode="true" />
+    <Property Name="KinContact" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+    <Property Name="DigitalAddress" Type="String" MaxLength="128" FixedLength="true" Unicode="true" />
+    <Property Name="IDType" Type="Int32" />
+    <Property Name="IDNumber" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MemberTitle" Relationship="hpsadmin_dfaithagModel.PK_MemebershipT_MemTitleID" FromRole="MemebershipT" ToRole="MemberTitle" />
+    <NavigationProperty Name="TbIdentification" Relationship="hpsadmin_dfaithagModel.PK_MemebershipT_IDType" FromRole="MemebershipT" ToRole="TbIdentification" />
+    <NavigationProperty Name="Gender" Relationship="hpsadmin_dfaithagModel.PK_MemebershipT_GenderIDn" FromRole="MemebershipT" ToRole="Gender" />
+    <NavigationProperty Name="TithePayments" Relationship="hpsadmin_dfaithagModel.PK_TithePayment_MemberIdN" FromRole="MemebershipT" ToRole="TithePayment" />
+  </EntityType>
+  <EntityType Name="Nationality">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Country" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CountryCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="Nationality1" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="MemebershipTs" Relationship="hpsadmin_dfaithagModel.PK_MemebershipT_NationalityID" FromRole="Nationality" ToRole="MemebershipT" />
+  </EntityType>
+  <Association Name="PK_childrenDetails_MembershipIDNo">
+    <End Type="hpsadmin_dfaithagModel.MemebershipT" Role="MemebershipT" Multiplicity="0..1" />
+    <End Type="hpsadmin_dfaithagModel.childrenDetail" Role="childrenDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MemebershipT">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="childrenDetail">
+        <PropertyRef Name="MembershipIDNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PK_DepartList_DeptId">
+    <End Type="hpsadmin_dfaithagModel.Departmental" Role="Departmental" Multiplicity="0..1" />
+    <End Type="hpsadmin_dfaithagModel.DepartList" Role="DepartList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departmental">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DepartList">
+        <PropertyRef Name="DeptId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PK_DepartList_MemberId">
+    <End Type="hpsadmin_dfaithagModel.MemebershipT" Role="MemebershipT" Multiplicity="0..1" />
+    <End Type="hpsadmin_dfaithagModel.DepartList" Role="DepartList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MemebershipT">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DepartList">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PK_MemebershipT_MaritalStatusID">
+    <End Type="hpsadmin_dfaithagModel.MaritalStatu" Role="MaritalStatu" Multiplicity="0..1" />
+    <End Type="hpsadmin_dfaithagModel.MemebershipT" Role="MemebershipT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaritalStatu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MemebershipT">
+        <PropertyRef Name="MaritalStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PK_MemebershipT_NationalityID">
+    <End Type="hpsadmin_dfaithagModel.Nationality" Role="Nationality" Multiplicity="0..1" />
+    <End Type="hpsadmin_dfaithagModel.MemebershipT" Role="MemebershipT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nationality">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MemebershipT">
+        <PropertyRef Name="NationalityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Firstname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Lastname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Middlename" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Fullname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="hpsadmin_dfaithagModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="hpsadmin_dfaithagModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+    <NavigationProperty Name="MemebershipTs" Relationship="hpsadmin_dfaithagModel.PK_MemebershipT_UID" FromRole="AspNetUser" ToRole="MemebershipT" />
+    <NavigationProperty Name="AspNetRoles" Relationship="hpsadmin_dfaithagModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+    <NavigationProperty Name="TithePayments" Relationship="hpsadmin_dfaithagModel.PK_TithePayment_UserId" FromRole="AspNetUser" ToRole="TithePayment" />
+    <NavigationProperty Name="FaithBillLogs" Relationship="hpsadmin_dfaithagModel.PK_FaithBillLog_BillUID" FromRole="AspNetUser" ToRole="FaithBillLog" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Type="hpsadmin_dfaithagModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="hpsadmin_dfaithagModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaim">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="hpsadmin_dfaithagModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="hpsadmin_dfaithagModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PK_MemebershipT_UID">
+    <End Type="hpsadmin_dfaithagModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+    <End Type="hpsadmin_dfaithagModel.MemebershipT" Role="MemebershipT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MemebershipT">
+        <PropertyRef Name="UID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Type="hpsadmin_dfaithagModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="hpsadmin_dfaithagModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <EntityType Name="MemberTitle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TitleName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MemebershipTs" Relationship="hpsadmin_dfaithagModel.PK_MemebershipT_MemTitleID" FromRole="MemberTitle" ToRole="MemebershipT" />
+  </EntityType>
+  <EntityType Name="TbIdentification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MemebershipTs" Relationship="hpsadmin_dfaithagModel.PK_MemebershipT_IDType" FromRole="TbIdentification" ToRole="MemebershipT" />
+  </EntityType>
+  <Association Name="PK_MemebershipT_MemTitleID">
+    <End Type="hpsadmin_dfaithagModel.MemberTitle" Role="MemberTitle" Multiplicity="0..1" />
+    <End Type="hpsadmin_dfaithagModel.MemebershipT" Role="MemebershipT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MemberTitle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MemebershipT">
+        <PropertyRef Name="MemTitleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PK_MemebershipT_IDType">
+    <End Type="hpsadmin_dfaithagModel.TbIdentification" Role="TbIdentification" Multiplicity="0..1" />
+    <End Type="hpsadmin_dfaithagModel.MemebershipT" Role="MemebershipT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbIdentification">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MemebershipT">
+        <PropertyRef Name="IDType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StatusName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="childrenDetails" Relationship="hpsadmin_dfaithagModel.PK_childrenDetails_GenderID" FromRole="Gender" ToRole="childrenDetail" />
+    <NavigationProperty Name="MemebershipTs" Relationship="hpsadmin_dfaithagModel.PK_MemebershipT_GenderIDn" FromRole="Gender" ToRole="MemebershipT" />
+  </EntityType>
+  <Association Name="PK_childrenDetails_GenderID">
+    <End Type="hpsadmin_dfaithagModel.Gender" Role="Gender" Multiplicity="0..1" />
+    <End Type="hpsadmin_dfaithagModel.childrenDetail" Role="childrenDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="childrenDetail">
+        <PropertyRef Name="GenderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PK_MemebershipT_GenderIDn">
+    <End Type="hpsadmin_dfaithagModel.Gender" Role="Gender" Multiplicity="0..1" />
+    <End Type="hpsadmin_dfaithagModel.MemebershipT" Role="MemebershipT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MemebershipT">
+        <PropertyRef Name="GenderIDn" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TithePayment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberIdN" Type="Int32" />
+    <Property Name="RecordDate" Type="DateTime" Precision="3" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Amt" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="AspNetUser" Relationship="hpsadmin_dfaithagModel.PK_TithePayment_UserId" FromRole="TithePayment" ToRole="AspNetUser" />
+    <NavigationProperty Name="MemebershipT" Relationship="hpsadmin_dfaithagModel.PK_TithePayment_MemberIdN" FromRole="TithePayment" ToRole="MemebershipT" />
+  </EntityType>
+  <Association Name="PK_TithePayment_UserId">
+    <End Type="hpsadmin_dfaithagModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+    <End Type="hpsadmin_dfaithagModel.TithePayment" Role="TithePayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TithePayment">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PK_TithePayment_MemberIdN">
+    <End Type="hpsadmin_dfaithagModel.MemebershipT" Role="MemebershipT" Multiplicity="0..1" />
+    <End Type="hpsadmin_dfaithagModel.TithePayment" Role="TithePayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MemebershipT">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TithePayment">
+        <PropertyRef Name="MemberIdN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="FaithBillLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BillRef" Type="Int32" Nullable="false" />
+    <Property Name="BillItemType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BillPaymentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BillUID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="BillDate" Type="DateTime" Precision="3" />
+    <Property Name="PaidInAmt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PaidOutAmt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TotalAmt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="PaymentStatus" Type="Boolean" />
+    <Property Name="CancellationStatus" Type="Boolean" />
+    <NavigationProperty Name="AspNetUser" Relationship="hpsadmin_dfaithagModel.PK_FaithBillLog_BillUID" FromRole="FaithBillLog" ToRole="AspNetUser" />
+  </EntityType>
+  <Association Name="PK_FaithBillLog_BillUID">
+    <End Type="hpsadmin_dfaithagModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+    <End Type="hpsadmin_dfaithagModel.FaithBillLog" Role="FaithBillLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FaithBillLog">
+        <PropertyRef Name="BillUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

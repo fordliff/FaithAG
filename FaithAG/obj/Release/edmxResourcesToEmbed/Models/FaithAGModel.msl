@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="hpsadmin_dfaithagModelStoreContainer" CdmEntityContainer="hpsadmin_dfaithagEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="hpsadmin_dfaithagModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="hpsadmin_dfaithagModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="hpsadmin_dfaithagModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="hpsadmin_dfaithagModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="childrenDetails">
+      <EntityTypeMapping TypeName="hpsadmin_dfaithagModel.childrenDetail">
+        <MappingFragment StoreEntitySet="childrenDetails">
+          <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="WorkSch" ColumnName="WorkSch" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Middlename" ColumnName="Middlename" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="MembershipIDNo" ColumnName="MembershipIDNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DepartLists">
+      <EntityTypeMapping TypeName="hpsadmin_dfaithagModel.DepartList">
+        <MappingFragment StoreEntitySet="DepartList">
+          <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departmentals">
+      <EntityTypeMapping TypeName="hpsadmin_dfaithagModel.Departmental">
+        <MappingFragment StoreEntitySet="Departmentals">
+          <ScalarProperty Name="Desc" ColumnName="Desc" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaritalStatus">
+      <EntityTypeMapping TypeName="hpsadmin_dfaithagModel.MaritalStatu">
+        <MappingFragment StoreEntitySet="MaritalStatus">
+          <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemebershipTs">
+      <EntityTypeMapping TypeName="hpsadmin_dfaithagModel.MemebershipT">
+        <MappingFragment StoreEntitySet="MemebershipT">
+          <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
+          <ScalarProperty Name="IDType" ColumnName="IDType" />
+          <ScalarProperty Name="DigitalAddress" ColumnName="DigitalAddress" />
+          <ScalarProperty Name="KinContact" ColumnName="KinContact" />
+          <ScalarProperty Name="NextofKin" ColumnName="NextofKin" />
+          <ScalarProperty Name="MemTitleID" ColumnName="MemTitleID" />
+          <ScalarProperty Name="Profile_Img" ColumnName="Profile_Img" />
+          <ScalarProperty Name="GenderIDn" ColumnName="GenderIDn" />
+          <ScalarProperty Name="Profession" ColumnName="Profession" />
+          <ScalarProperty Name="SpouseFullname" ColumnName="SpouseFullname" />
+          <ScalarProperty Name="SpouseId" ColumnName="SpouseId" />
+          <ScalarProperty Name="HomeTown" ColumnName="HomeTown" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="WorkPlace" ColumnName="WorkPlace" />
+          <ScalarProperty Name="MaritalStatusID" ColumnName="MaritalStatusID" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ResidentialAddress" ColumnName="ResidentialAddress" />
+          <ScalarProperty Name="NationalityID" ColumnName="NationalityID" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Middlename" ColumnName="Middlename" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nationalities">
+      <EntityTypeMapping TypeName="hpsadmin_dfaithagModel.Nationality">
+        <MappingFragment StoreEntitySet="Nationality">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nationality1" ColumnName="Nationality" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="hpsadmin_dfaithagModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="Middlename" ColumnName="Middlename" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="hpsadmin_dfaithagModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="MemberTitles">
+      <EntityTypeMapping TypeName="hpsadmin_dfaithagModel.MemberTitle">
+        <MappingFragment StoreEntitySet="MemberTitle">
+          <ScalarProperty Name="TitleName" ColumnName="TitleName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TbIdentifications">
+      <EntityTypeMapping TypeName="hpsadmin_dfaithagModel.TbIdentification">
+        <MappingFragment StoreEntitySet="TbIdentification">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genders">
+      <EntityTypeMapping TypeName="hpsadmin_dfaithagModel.Gender">
+        <MappingFragment StoreEntitySet="Gender">
+          <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TithePayments">
+      <EntityTypeMapping TypeName="hpsadmin_dfaithagModel.TithePayment">
+        <MappingFragment StoreEntitySet="TithePayment">
+          <ScalarProperty Name="Amt" ColumnName="Amt" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+          <ScalarProperty Name="MemberIdN" ColumnName="MemberIdN" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FaithBillLogs">
+      <EntityTypeMapping TypeName="hpsadmin_dfaithagModel.FaithBillLog">
+        <MappingFragment StoreEntitySet="FaithBillLog">
+          <ScalarProperty Name="CancellationStatus" ColumnName="CancellationStatus" />
+          <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+          <ScalarProperty Name="TotalAmt" ColumnName="TotalAmt" />
+          <ScalarProperty Name="PaidOutAmt" ColumnName="PaidOutAmt" />
+          <ScalarProperty Name="PaidInAmt" ColumnName="PaidInAmt" />
+          <ScalarProperty Name="BillDate" ColumnName="BillDate" />
+          <ScalarProperty Name="BillUID" ColumnName="BillUID" />
+          <ScalarProperty Name="BillPaymentType" ColumnName="BillPaymentType" />
+          <ScalarProperty Name="BillItemType" ColumnName="BillItemType" />
+          <ScalarProperty Name="BillRef" ColumnName="BillRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

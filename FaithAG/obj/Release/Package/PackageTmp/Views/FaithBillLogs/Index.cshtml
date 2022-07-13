@@ -1,0 +1,87 @@
+﻿@model IEnumerable<FaithAG.Models.FaithBillLog>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BillRef)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BillItemType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BillPaymentType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BillDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaidInAmt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaidOutAmt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalAmt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CancellationStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUser.Firstname)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BillRef)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BillItemType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BillPaymentType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BillDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaidInAmt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaidOutAmt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalAmt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CancellationStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUser.Firstname)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

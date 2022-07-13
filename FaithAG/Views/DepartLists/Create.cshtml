@@ -1,0 +1,70 @@
+﻿@model FaithAG.Models.DepartList
+<br />
+<br />
+<br />
+
+@{
+    ViewBag.Title = "Add Member to Department";
+}
+
+
+<div class="modal-dialog" style="width:50%;">
+    <div class="modal-content">
+        <div style="background-color:#382e2e;" class="modal-header">
+            <h4 style="color:white;font-weight:bold;">@ViewBag.Title.</h4>
+            @*<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>*@
+            @*<h4 class="modal-title">Edit</h4>*@
+        </div>
+        <div class="modal-body">
+
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @*<h4>DepartList</h4> <hr />*@
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <p style="color:blue;"> @TempData["SuccessMsg"]</p>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MemberId, "MemberId", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("MemberId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MemberId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DeptId, "Department", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("DeptId", (SelectList)ViewBag.DeptId, "---Select Department---", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.DeptId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                        &nbsp;&nbsp;&nbsp;
+                        <input type="reset" value="Reset" class="btn btn-primary" />
+                        &nbsp;&nbsp;&nbsp;
+                        @* @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-primary" })*@
+                        <a href="javascript:window.close(0);" class="btn btn-primary">Close</a>
+                    </div>
+                </div>
+            </div>
+            }
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }
+
+        </div>
+        <div style="background-color:#382e2e;" class="modal-footer">
+            @*@Html.ActionLink("Cancel", "CheckInRole", "Check_in", new {id=Model.RefNo }, new { @class = "btn btn-primary" })*@
+            @*<a href="javascript:window.close(0);" class="btn btn-primary">Close</a>*@
+        </div>
+    </div>
+</div>
